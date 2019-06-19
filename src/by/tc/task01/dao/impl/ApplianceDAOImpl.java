@@ -35,6 +35,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 		
 		Appliance appliance = new Appliance();
 		
+		
 		try {
 			Reader fileReader = new FileReader(file);
 			buff = new BufferedReader(fileReader);
@@ -46,7 +47,8 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 						String value = entry.getValue().toString();
 						String match = key+"="+value;
 						if (line.contains(match)) {
-							fileContent.add(line);
+//							fileContent.add(line);
+							
 							Appliance.getApplianceinstance().add(line);
 							}
 						}
@@ -66,7 +68,7 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 						}
 					}
 		
-		if (fileContent.isEmpty()){
+		if (Appliance.getApplianceinstance().isEmpty()){
 			System.out.println("No entries matching your criteria were found");
 		} else {
 			System.out.println("Search results: ");
@@ -75,12 +77,18 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 			}
 		}
 
-		// you may add your own code here
 		return appliance;
 		
 	}
-	
-	// you may add your own code here
+
+
+
+	@Override
+	public <E> Appliance clear(Appliance appliance) {
+		Appliance.getApplianceinstance().clear();
+		
+		return null;
+	}
 
 }
 

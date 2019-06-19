@@ -1,5 +1,7 @@
 package by.tc.task01.main;
 
+import by.tc.task01.dao.ApplianceDAO;
+import by.tc.task01.dao.DAOFactory;
 import by.tc.task01.entity.Appliance;
 
 public class PrintApplianceInfo {
@@ -10,12 +12,14 @@ public class PrintApplianceInfo {
 		int k = Appliance.getApplianceinstance().size();
 		
 		for (int i = 0; i < k; i++) {
-//			System.out.println(Appliance.getApplianceinstance().get(i));
+			System.out.println(Appliance.getApplianceinstance().get(i));
 		}
 		
+		DAOFactory factory = DAOFactory.getInstance();
+		ApplianceDAO applianceDAO = factory.getApplianceDAO();
 		
+		applianceDAO.clear(appliance);
 		
-		Appliance.getApplianceinstance().clear();
 		
 	}
 	

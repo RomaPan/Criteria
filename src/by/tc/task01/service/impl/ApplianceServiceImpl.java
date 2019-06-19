@@ -27,7 +27,12 @@ public class ApplianceServiceImpl implements ApplianceService{
 		return appliance;
 	}
 
-	
+	public <E> Appliance clearSearch(Appliance appliance) {
+		
+		Appliance.getApplianceinstance().clear();
+		
+		return appliance;
+	}
 	
 }
 

@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Appliance {
 	// you may add your own code here
-	private static final List<String> applianceInstance = new ArrayList<String>();
+	private static final List<Object> applianceInstance = new ArrayList<Object>();
 	
 
-	public static List<String> getApplianceinstance() {
+	public static List<Object> getApplianceinstance() {
 		return applianceInstance;
 	}
+	
+	
 	
 	
 }
